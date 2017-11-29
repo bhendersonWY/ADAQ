@@ -27,6 +27,7 @@
 #include <stdint.h>
 
 #ifdef WIN32
+    #include <WinSock2.h>
     #include <windows.h>
 
     // define standard integers if not defined in 'stdint.h'
@@ -234,7 +235,7 @@
 #define V1743_DPP_CI_CODE     (0x86)    // The code for the DPP-PSD for x743 boards
 #define V1730_DPP_PSD_CODE    (0x88)    // The code for the DPP-PSD for x730 boards
 #define V1730_DPP_PHA_CODE    (0x8B)    // The code for the DPP-PHA for x730 boards
-
+#define V1730_DPP_ZLE_CODE    (0x8C)    // The code for the DPP-ZLE for x730 boards
 
 /*###########################################################################*/
 /*
@@ -776,6 +777,7 @@ typedef enum
 #define DIGITAL_TRACE_3 (4)
 #define DIGITAL_TRACE_4 (5)
 
+#define CAEN_DGTZ_DPP_VIRTUALPROBE_Invalid (-1)
 #define CAEN_DGTZ_DPP_VIRTUALPROBE_Input (0)
 #define CAEN_DGTZ_DPP_VIRTUALPROBE_Delta (1)
 #define CAEN_DGTZ_DPP_VIRTUALPROBE_Delta2 (2)
@@ -805,6 +807,9 @@ typedef enum
 #define CAEN_DGTZ_DPP_DIGITALPROBE_GateShort (25)
 #define CAEN_DGTZ_DPP_DIGITALPROBE_Trigger (26)
 #define CAEN_DGTZ_DPP_DIGITALPROBE_None (27)
+#define CAEN_DGTZ_DPP_DIGITALPROBE_BLFreeze (28)
+#define CAEN_DGTZ_DPP_DIGITALPROBE_Busy (29)
+#define CAEN_DGTZ_DPP_DIGITALPROBE_PrgVeto (30)
 
 
 /*! 
@@ -1006,6 +1011,32 @@ typedef struct
     uint32_t *Waveforms;
 } CAEN_DGTZ_751_ZLE_Event_t;
 
+typedef struct
+{
+	uint32_t TraceNumber;
+	uint16_t *Trace;
+	uint32_t *TraceIndex;
+
+} CAEN_DGTZ_730_ZLE_Waveforms_t;
+
+typedef struct
+{
+	uint32_t fifo_full;
+	uint32_t size_wrd;
+	uint32_t baseline;				   
+	uint32_t *DataPtr;
+	CAEN_DGTZ_730_ZLE_Waveforms_t *Waveforms;
+} CAEN_DGTZ_730_ZLE_Channel_t;
+
+typedef struct
+{
+	uint32_t size;
+	uint16_t chmask;
+	uint32_t tcounter;
+	uint64_t timeStamp;				   
+	CAEN_DGTZ_730_ZLE_Channel_t *Channel[MAX_V1730_CHANNEL_SIZE];
+
+} CAEN_DGTZ_730_ZLE_Event_t;
 
 typedef struct 
 {
@@ -1100,6 +1131,7 @@ typedef enum
     CAEN_DGTZ_DPPFirmware_PHA,
     CAEN_DGTZ_DPPFirmware_PSD,
     CAEN_DGTZ_DPPFirmware_CI,
+	CAEN_DGTZ_DPPFirmware_ZLE,
     CAEN_DGTZ_NotDPPFirmware = -1
 } CAEN_DGTZ_DPPFirmware_t;
 

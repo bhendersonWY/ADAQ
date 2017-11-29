@@ -294,7 +294,7 @@ int ADAQDigitizer::OpenLink()
     }
   }
   else
-    if(Verbose and !LinkEstablished)
+    if(!LinkEstablished)
       std::cout << "ADAQDigitizer[" << BoardID << "] : Error opening link! Returned error code: " << CommandStatus << "\n"
 		<< std::endl;
   

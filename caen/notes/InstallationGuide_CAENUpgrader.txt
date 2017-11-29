@@ -17,11 +17,7 @@ This applies to CAENUpgrader version : 1.4.1
 0. Run configure utility with the following arguments to specify the
    _local_ location of the header and library files in the ADAQ repo.
 
-   $ ./configure --prefix=/home/hartwig/aims/ADAQ/caen/software/CAENUpgrader-1.4.1 \
-                 --exec-prefix=/home/hartwig/aims/ADAQ/caen/software/CAENUpgrader-1.4.1 \
-		 CFLAGS=-I/home/hartwig/aims/ADAQ/include \
-                 CPPFLAGS=-I/home/hartwig/aims/ADAQ/include \
-		 LDFLAGS=-L/home/hartwig/aims/ADAQ/lib/x86_64
+   $ ./configure --prefix=/home/bsh/LNSP/ADAQ_base/bshfork/caen/software/CAENUpgrader-1.4.1 --exec-prefix=/home/bsh/LNSP/ADAQ_base/bshfork/caen/software/CAENUpgrader-1.4.1 CFLAGS=-I/home/bsh/LNSP/ADAQ_base/bshfork/include CPPFLAGS=-I/home/bsh/LNSP/ADAQ_base/bshfork/include LDFLAGS=-L/home/bsh/LNSP/ADAQ_base/bshfork/lib/x86_64
 
 1. The file cvUpgrade/src/cvupgrade.c has a fucking bug in it. Line
    680 looks for the type 'CAENComm_PCI_OpticalLink', which is simply

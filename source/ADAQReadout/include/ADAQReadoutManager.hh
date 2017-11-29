@@ -88,6 +88,7 @@ private:
   // Objects for run-level information
 
   ADAQReadoutInformation *ReadoutInformation;
+  unsigned int nchan;
 
   ClassDef(ADAQReadoutManager, 1);
 };

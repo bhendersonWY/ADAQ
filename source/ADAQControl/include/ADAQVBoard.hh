@@ -76,7 +76,7 @@ public:
     
     BoardHandle = -42;
     LinkEstablished = false;
-    Verbose = false;
+    Verbose = true;
     CommandStatus = 0;
   };
   

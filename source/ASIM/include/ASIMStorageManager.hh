@@ -86,6 +86,8 @@ public:
   
   TList *GetEventTreeList() {return EventTreeList;}
   TList *GetRunList() {return RunList;}
+
+  bool GetASIMFileOpen() {return ASIMFileOpen;}
   
 private:
 

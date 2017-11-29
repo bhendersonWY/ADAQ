@@ -8,7 +8,7 @@
 
   -----------------------------------------------------------------------------
 
-  Rel. 2.7.6  - Oct 2016
+  Rel. 2.9.1  - Jul 2017
  
   -----------------------------------------------------------------------------
  
@@ -28,6 +28,37 @@
   - glibc version 2.11.1 or above
   - CAENComm library version 1.0.2 or above.  
 
+  What's New in Rel. 2.9.1
+  --------------------------
+    - Minor bugfixes
+    - Fixes undefined references issue
+  
+  What's New in Rel. 2.9.0
+  --------------------------
+    - Added support to X725/X730 DPP-ZLE firmware
+  
+  What's New in Rel. 2.8.0
+  --------------------------
+    - Bugfixes regarding supported VirtualProbes for X724/30/25 boards with DPP-PHA
+    - Disabled automatic temperature correction for X730/25 boards
+    - Bugfix in decode for X751
+    - Fixed temporary loss of HV at connect in DT5780/90 boards
+  
+  What's New in Rel. 2.7.9
+  --------------------------
+    - Fixed Readout buffer memory allocation for X730/X725 modules
+    - Fixed Waveform buffer allocation for X730/X725 with DPP-PHA if only odd channels are enabled
+    - Increased Recordlength limit of X730/X725 with DPP firmwares to 16383 samples
+  
+  What's New in Rel. 2.7.8
+  --------------------------
+    - Bugfix for DT5780/90 boards with HV firmware release > 2.0
+    - Correct codification of DT5780C and DT5780SC modules
+  
+  What's New in Rel. 2.7.7
+  --------------------------
+    - Removed Calibration Done bit check at Reset for X730/X725 boards
+  
   What's New in Rel. 2.7.6
   --------------------------
     - Added CFD management for X751 boards with DPP-PSD
